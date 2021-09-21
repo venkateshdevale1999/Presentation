@@ -1,0 +1,401 @@
+KEB problem::
+
+main:
+package com.torry_harris;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Customer c1 = new Customer(1,"venky",2000,5);
+
+//        System.out.println("bill amount : "+c1.calc_billamt());
+        System.out.println(c1);
+    }
+}
+
+class:
+package com.torry_harris;
+
+public class Customer {
+
+    private int custId;
+    private String custName;
+    private int unitConsumed;
+    private int unitPrice;
+
+    public Customer(int custId, String custName, int unitConsumed, int unitPrice) {
+        this.custId = custId;
+        this.custName = custName;
+        this.unitConsumed = unitConsumed;
+        this.unitPrice = unitPrice;
+    }
+
+    private int calc_billamt()
+    {
+        return(unitConsumed*unitPrice);
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "custId=" + custId +
+                ", custName='" + custName + '\'' +
+                ", unitConsumed=" + unitConsumed +
+                ", unitPrice=" + unitPrice +
+                 "  bill amount :" +calc_billamt()+
+    '}';
+    }
+}
+
+
+output::
+
+Customer{custId=1, custName='venky', unitConsumed=2000, unitPrice=5  bill amount :10000}
+
+
+
+
+
+***********************************************************************
+///// maximum and minimum in given array//////
+
+
+package com.torry_harris;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args)
+    {
+        int[] arr ={11,26,133,47,55};
+        int max = arr[0];
+        int min = arr[0];
+        for(int i=1;i<arr.length;i++)
+        {
+            if(arr[i]>max)
+                max=arr[i];
+
+            if(arr[i]<min)
+                min=arr[i];
+
+
+        }
+        System.out.println("maximum:"+max+"   minimum:"+min);*/
+
+***********************************************************************
+// bubble sorting:::
+
+
+        int len =Integer.parseInt(args[0]);
+        int[] arr = new int[len];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the elements");
+        for(int i=0; i<arr.length;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        for(int i=0;i<len-1;i++)
+        {
+            for(int j=0;j<len-1-i;j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                    int temp =arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+
+
+                }
+            }
+        }
+        System.out.println("sorted elements are : ");
+        for(int i=0;i<len;i++)
+        {
+            System.out.println(arr[i]);
+        }
+
+
+output:
+enter the elements
+10
+34
+23
+65
+56
+sorted elements are : 
+10
+23
+34
+56
+65
+
+**************************************************************************************
+///// student  //////
+
+main.java   :::::
+
+package com.torry_harris;
+
+public class Main {
+
+    public static void main(String[] args) {
+        
+
+        Student s1 = new Student(1,67,89,56);
+
+        System.out.println(s1);
+
+
+    }
+}
+
+
+student.java(class)::::
+
+package com.torry_harris;
+
+public class Student {
+
+    private int regNo;
+    private int m1;
+    private int m2;
+    private int m3;
+
+    public Student(int regNo, int m1, int m2, int m3) {
+        this.regNo = regNo;
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
+    }
+
+    private double calc_percentage()
+    {
+        return (m1+m2+m3)/3;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "regNo=" + regNo +
+                ", m1=" + m1 +
+                ", m2=" + m2 +
+                ", m3=" + m3 +
+                " percentage = "+calc_percentage()+
+                '}';
+    }
+}
+
+
+output:  Student{regNo=1, m1=67, m2=89, m3=56 percentage = 70.0}
+
+********************************************************************************************
+
+student (array of object):::
+
+main program:::
+
+package com.torry_harris;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the number of student: ");
+        int len = sc.nextInt();
+
+        Student[] students = new Student[len];
+        for(int i=0; i<students.length;i++)
+        {
+            System.out.println("entering details of "+(i+1) +"student: ");
+            int regNo = sc.nextInt();
+            int m1 = sc.nextInt();
+            int m2 = sc.nextInt();
+            int m3 = sc.nextInt();
+
+            students[i] = new Student(regNo,m1,m2,m3);
+        }
+
+        for(int i=0;i<students.length;i++)
+        {
+            System.out.println(students[i]);
+        }
+
+
+
+
+    }
+}
+
+class program::
+
+
+package com.torry_harris;
+
+public class Student {
+
+    private int regNo;
+    private int m1;
+    private int m2;
+    private int m3;
+
+    public Student(int regNo, int m1, int m2, int m3) {
+        this.regNo = regNo;
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
+    }
+
+    private double calc_percentage()
+    {
+        return (m1+m2+m3)/3;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "regNo=" + regNo +
+                ", m1=" + m1 +
+                ", m2=" + m2 +
+                ", m3=" + m3 +
+                " percentage = "+calc_percentage()+
+                '}';
+    }
+}
+
+
+output::
+
+enter the number of student: 
+3
+entering details of 1student: 
+101
+87
+65
+78
+entering details of 2student: 
+456
+67
+98
+76
+entering details of 3student: 
+345
+67
+98
+45
+Student{regNo=101, m1=87, m2=65, m3=78 percentage = 76.0}
+Student{regNo=456, m1=67, m2=98, m3=76 percentage = 80.0}
+Student{regNo=345, m1=67, m2=98, m3=45 percentage = 70.0}
+
+********************************************************************************************
+books problem::
+
+main program:
+package com.torry_harris;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc =new Scanner(System.in);
+       /* System.out.println("enter the details of book1");
+        int bookId1 = sc.nextInt();
+        String bookName1 = sc.next();
+        int bookPrice1 = sc.nextInt();
+
+        Book book1 = new Book(bookId1,bookName1,bookPrice1);
+        System.out.println(book1);
+
+        Book book2 = new Book(1001,"python",300);
+        System.out.println(book2);*/
+
+
+        ////// array of objects////
+
+        System.out.println("enter the no of element in book array");
+        int len =sc.nextInt();
+        Book[] bookarr = new Book[len];
+        for(int i=0;i< bookarr.length;i++)
+        {
+            System.out.println("entering the details of "+(i+1));
+            int bookId = sc.nextInt();
+            sc.nextLine();
+            String bookName = sc.nextLine();
+            int bookPrice = sc.nextInt();
+            bookarr[i] = new Book(bookId,bookName,bookPrice);
+        }
+
+        for(int i=0;i<bookarr.length;i++)
+        {
+            System.out.println(bookarr[i]);
+        }
+
+
+
+    }
+}
+
+
+class program:
+
+package com.torry_harris;
+
+public class Book {
+    int bookId;
+    String bookName;
+    int bookPrice;
+
+    //method in oops called constructor
+    public Book(int bookId, String bookName, int bookPrice) {
+        this.bookId = bookId;
+        this.bookName = bookName;
+        this.bookPrice = bookPrice;
+    }
+    //print the book object
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", bookPrice=" + bookPrice +
+                '}';
+    }
+}
+
+
+output::
+
+enter the no of element in book array
+2
+entering the details of 1
+101
+java script
+200
+entering the details of 2
+102
+python 
+300
+Book{bookId=101, bookName='java script', bookPrice=200}
+Book{bookId=102, bookName='python ', bookPrice=300}
+
+******************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
