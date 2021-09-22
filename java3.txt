@@ -1,0 +1,388 @@
+/////constructor overloading//////
+
+main program::
+
+package com.torry_harris.canvas;
+
+import com.torry_harris.circlepack.Circle;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Circle c1 = new Circle();
+        System.out.println(c1);
+
+        Circle c2 = new Circle(4.5);
+        System.out.println(c2);
+
+        Circle c3 = new Circle("red");
+        System.out.println(c3);
+
+        Circle c4 = new Circle(5.5,"pink");
+        System.out.println(c4);
+
+
+
+    }
+}
+
+class::
+package com.torry_harris.circlepack;
+
+public class Circle {
+    private double radius;
+    private String colour;
+
+    //no parameter constructor
+    public Circle()
+    {
+       /* this.radius = 3.5;
+        this.colour = "blue";*/
+
+        //or//
+
+        this(3.5 , "blue");
+
+    }
+
+    // complete parameter constructor
+    public Circle(double radius, String colour)
+    {
+        this.radius = radius;
+        this.colour = colour;
+    }
+
+
+    // only when radius is given as input parameter
+    public Circle(double radius) {
+        this(radius,"brown");
+    }
+    //only colour is input
+    public Circle(String colour) {
+        this(6.5,colour);
+    }
+
+    @Override
+    public String toString() {
+        return "circle{" +
+                "radius=" + radius +
+                ", colour='" + colour + '\'' +
+                '}';
+    }
+}
+
+
+output::
+
+circle{radius=3.5, colour='blue'}
+circle{radius=4.5, colour='brown'}
+circle{radius=6.5, colour='red'}
+circle{radius=5.5, colour='pink'}
+
+******************************************************************************************************
+////explaning about association////
+
+Main.java:
+
+package com.torry_harris;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Address addrs=new Address(17,"abc","ballari","karnataka",583101);
+        Person person = new Person(101,"venky",addrs);
+
+
+        System.out.println(person);
+    }
+}
+
+Address.java:
+
+package com.torry_harris;
+
+public class Address {
+    private int doorNo;
+    private String street;
+    private String city;
+    private String state;
+    private int pincode;
+
+
+    public Address(int doorNo, String street, String city, String state, int pincode) {
+        this.doorNo = doorNo;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.pincode = pincode;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "doorNo=" + doorNo +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", pincode=" + pincode +
+                '}';
+    }
+}
+
+Person.java:
+
+
+package com.torry_harris;
+
+public class Person {
+
+    private int personId;
+    private String personName;
+    private Address addrs;
+
+    public Person(int personId, String personName, Address addrs) {
+        this.personId = personId;
+        this.personName = personName;
+        this.addrs = addrs;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "personId=" + personId +
+                ", personName='" + personName + '\'' +
+                ", addrs=" + addrs +
+                '}';
+    }
+}
+
+
+output:
+
+Person{personId=101, personName='venky', addrs=Address{doorNo=17, street='abc', city='ballari', state='karnataka', pincode=583101}}
+
+****************************************************************************************************************************************
+
+///////Dice game//////////
+
+
+Main.java
+
+package com.torry_harris.stadium;
+
+import com.torryharris.playerpack.Player;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Player p1 = new Player();
+        int p1score = p1.play();
+        int p1d1score = p1.getD1Score();
+        int p1d2score = p1.getD2Score();
+
+        System.out.println("p1 scored :"+p1score);
+        System.out.println("p1  d1:"+p1d1score +" p1 d2:"+p1d2score);
+        Player p2 = new Player();
+        int p2score = p2.play();
+        int p2d1score = p2.getD1Score();
+        int p2d2score = p2.getD2Score();
+        System.out.println("p2 scored :"+p2score);
+        System.out.println("p2  d1:"+p2d1score +" p2 d2:"+p2d2score);
+
+        if (p1score>p2score)
+            System.out.println("p1 wins!!!");
+        else
+            if(p1score<p2score)
+                System.out.println("p2 wins!!!");
+            else
+                System.out.println("!!DRAW!!");
+
+
+    }
+}
+
+
+package com.torryharris.playerpack;
+
+import java.util.Random;
+
+public class Dice {
+
+    private int fValue;
+
+    public int roll()
+    {
+        Random rand = new Random();
+        fValue=((int)rand.nextInt(5)+1);  //given number between 1 to 6
+        return fValue;
+    }
+
+    public int getfValue()
+    {
+        return fValue;
+    }
+}
+
+
+package com.torryharris.playerpack;
+
+public class Player {
+    Dice d1;
+    Dice d2;
+
+    public Player() {
+        d1 = new Dice();
+        d2 = new Dice();
+    }
+
+    public int play()
+    {
+        return (d1.roll()+d2.roll());
+    }
+
+    public int getD1Score()
+    {
+        return(d1.getfValue());
+    }
+
+    public int getD2Score()
+    {
+        return(d2.getfValue());
+    }
+}
+
+output::
+
+
+p1 scored :7
+p1  d1:2 p1 d2:5
+p2 scored :7
+p2  d1:5 p2 d2:2
+!!DRAW!!
+
+*********************************************************************************************
+///function overloading//
+
+Main program:
+package com.torry_harris.mainpack;
+
+import utility.Average;
+import utility.Summation;
+import utility.Tax;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        /*Summation sob = new Summation();
+        System.out.println(sob.add(10,20));
+        System.out.println(sob.add(10,15.5f,12));
+        System.out.println(sob.add("good","afternoon"));*/
+
+
+        /*Tax tob = new Tax();
+        System.out.println("tax calculated for consultant"+tob.calc_tax(20000,'c'));
+        System.out.println("tax calculated for employee"+tob.calc_tax(20000));*/
+
+        Average avgob = new Average();
+        System.out.println(avgob.calc_avg(90, 80, 67, 45, 98));
+        System.out.println(avgob.calc_avg(15.5, 45567, 34, 67, 87));
+        System.out.println(avgob.calc_avg(15.5, 34, 56, 78, 98));
+
+    }
+}
+
+
+summation.java:
+
+package utility;
+
+public class Summation {
+
+    public int add(int x,int y)
+    {
+        return (x+y);
+    }
+
+    public double add(int x,float y,double z)
+    {
+        return(x+y+z);
+    }
+
+    public String add(String str1,String str2)
+    {
+        return(str1+" "+str2);
+    }
+}
+
+
+Tax.java:
+package utility;
+
+public class Tax {
+
+    public double calc_tax(long amt, char status)
+    {
+        return(amt*0.1);
+    }
+
+    public double calc_tax(long amt)
+    {
+        return(amt*0.25);
+    }
+}
+
+Average.java
+package utility;
+
+public class Average {
+
+    // this demo for ...operator in java
+    public double calc_avg(int... numbers) {
+        int sum1 = 0;
+        for (int n : numbers) {
+            sum1 += n;
+        }
+        return (sum1 / numbers.length);
+    }
+
+    public double calc_avg(double d, long l, int... numbers) {
+        double sum2 = d + l;
+        for (double x : numbers) {
+            sum2 += x;
+        }
+        return (sum2 + l + d) / (numbers.length + 2);
+    }
+
+    public double calc_avg(double d, int... numbers) {
+        double sum = d;
+        for (int n : numbers) {
+            sum += n;
+        }
+        return (sum / (numbers.length + 1));
+
+    }
+
+}
+
+output::
+
+76.0
+9154.1
+56.3
+
+
+
+
+
+
+
+
+
+
+
+
+
