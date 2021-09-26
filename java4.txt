@@ -1,0 +1,492 @@
+****************** Abstarct class******************
+
+package com.torryharris.mainpack;
+
+import com.torryharris.emppack.Employee;
+import com.torryharris.emppack.Manager;
+import com.torryharris.emppack.Programmer;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+       // Employee e = new Employee(100,"venky",10000);
+        // this cannot be created because the above class is made as abstract
+
+        Manager m1 = new Manager(101,"venky",20000,"hr",5);
+        System.out.println(m1+" "+m1.calcNetSal());
+
+        Programmer p1 = new Programmer(102,"rajesh",2000,6,"java");
+        System.out.println(p1+"  "+p1.calcNetSal());
+
+
+
+    }
+}
+
+
+Employee class:::
+package com.torryharris.emppack;
+
+
+
+public abstract class Employee {
+
+    protected int empId;
+    protected String empName;
+    protected int sal;
+
+    public Employee(int empId, String empName, int sal) {
+        this.empId = empId;
+        this.empName = empName;
+        this.sal = sal;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", sal=" + sal +
+                '}';
+    }
+
+    public abstract double calcNetSal(); 
+    public int getSal() {
+        return sal;
+    }
+}
+
+
+Manager.java:
+
+package com.torryharris.emppack;
+
+public class Manager extends Employee{
+
+    private String deptName;
+    private int empcount;
+
+    public Manager(int empId, String empName, int sal, String deptName, int empcount) {
+        super(empId, empName, sal);
+        this.deptName=deptName; //Constructor chaining , base class constructor evoked
+        //within the derived class constuctor // using super() method
+        this.empcount=empcount;
+    }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", sal=" + sal +
+                ", deptName='" + deptName + '\'' +
+                ", empcount=" + empcount +
+                '}';
+    }
+
+
+
+    @Override
+    public double calcNetSal() {
+        return 20000;
+    }
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public int getEmpcount() {
+        return empcount;
+    }
+}
+
+
+package com.torryharris.emppack;
+
+public class Programmer extends Employee {
+
+    private int noOfProjects;
+    private String skillSet;
+
+    public Programmer(int empId, String empName, int sal, int noOfProjects, String skillSet) {
+        super(empId, empName, sal);
+        this.noOfProjects = noOfProjects;
+        this.skillSet = skillSet;
+    }
+
+    @Override
+    public String toString() {
+        return "Programmer{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", sal=" + sal +
+                ", noOfProjects=" + noOfProjects +
+                ", skillSet='" + skillSet + '\'' +
+                '}';
+    }
+
+
+
+    @Override   //(@)--annotation are piece of info passed to complier
+    public double calcNetSal() {
+        return 150000;
+    }
+
+    public int getNoOfProjects() {
+        return noOfProjects;
+    }
+
+    public String getSkillSet() {
+        return skillSet;
+    }
+}
+
+
+
+output::
+
+
+Manager{empId=101, empName='venky', sal=20000, deptName='hr', empcount=5} 20000.0
+Programmer{empId=102, empName='rajesh', sal=2000, noOfProjects=6, skillSet='java'}  150000.0
+
+
+***********************************************************************************************************
+					----Interfaces---
+main class::
+
+
+package com.torryharris.mainpack;
+
+import com.torryharris.pack1.Claas1;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+
+        Claas1 a = new Claas1();
+
+        a.m1();
+        a.m4();
+    }
+}
+
+
+class.java
+
+package com.torryharris.pack1;
+
+public class Claas1 implements Interface3 {
+
+
+    @Override
+    public void m1() {
+        System.out.println("in m1");
+
+    }
+
+    @Override
+    public void m4() {
+        System.out.println("in m4");
+
+
+    }
+
+    @Override
+    public void m2() {
+        System.out.println("in m2");
+
+
+    }
+
+    @Override
+    public void m3() {
+        System.out.println("in m3");
+
+
+    }
+}
+
+
+Interface 1 ::
+
+package com.torryharris.pack1;
+
+public interface Interface1{
+
+    // this are public and abstract
+    void m1();
+    void m2();
+    void m3();
+
+
+}
+
+
+Interface 2:
+
+package com.torryharris.pack1;
+
+public interface Interface2
+{
+   
+    void m4();    
+
+}
+
+
+interface3::
+
+
+package com.torryharris.pack1;
+
+public interface Interface3  extends Interface1,Interface2{
+
+    @Override
+    void m1();
+
+    @Override
+    void m4();
+
+    @Override
+    void m2();
+
+    @Override
+    void m3();
+}
+
+
+Output::
+in m1
+in m4
+
+
+
+*************************************************************************************************************
+			Interface-Absract-
+
+main.java::
+package com.torryharris.mainpack;
+
+import com.torryharris.vpack.Automoblie;
+import com.torryharris.vpack.Car;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Automoblie car1 = new Car(1234,"SVU",90,150,"SUV");
+        System.out.println(car1.start());
+        int increvalue=car1.increSpeed(150);
+        if(increvalue == -1)
+            System.out.println("STOP");
+        else
+            System.out.println("Enjoy");
+        System.out.println(car1.stop());
+
+
+    }
+}
+
+
+Automoblie.java::
+
+package com.torryharris.vpack;
+
+public interface Automoblie {
+
+    String start();
+    int increSpeed(int n);
+    String stop();
+
+
+}
+
+package com.torryharris.vpack;
+
+public abstract class Vechile implements Automoblie{
+
+    protected int regNo;
+    protected String model;
+    protected int currSpeed;
+
+    public Vechile(int regNo, String model, int currSpeed) {
+        this.regNo = regNo;
+        this.model = model;
+        this.currSpeed = currSpeed;
+    }
+
+
+    @Override
+    public String start() {
+        return "started";
+    }
+
+    @Override
+    public abstract int increSpeed(int n);
+
+    @Override
+    public String stop() {
+        return "stopped";
+    }
+
+
+    @Override
+
+    public String toString() {
+        return "Vechile{" +
+                "regNo=" + regNo +
+                ", model='" + model + '\'' +
+                ", currSpeed=" + currSpeed +
+                '}';
+    }
+}
+
+
+package com.torryharris.vpack;
+
+
+public class Car extends Vechile{
+    private int maxSpeed;
+    private String type;
+
+    public Car(int regNo, String model, int currSpeed, int maxSpeed,String type) {
+        super(regNo, model, currSpeed);
+    }
+
+
+    @Override
+    public int increSpeed(int n) {
+        if(currSpeed+n< maxSpeed)
+            currSpeed +=n;
+        else
+            currSpeed=-1;
+        return(currSpeed);
+    }
+
+
+}
+
+
+
+output::
+
+
+started
+STOP
+stopped
+
+****************************************************************************
+Exception::
+
+package com.torryharris.mainpack;
+
+import com.torryharris.exceptionpack.ReadInput;
+
+import java.io.IOException;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+         ReadInput.readInput();
+        System.out.println(ReadInput.readInput1());
+        try {
+            ReadInput.readInput2();
+        } catch (ArithmeticException e) {
+            System.out.println("Denominator is zeo    " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid inputs...    " + e.getMessage());
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+package com.torryharris.exceptionpack;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ReadInput {
+
+    public static String readInput1() {
+
+        try (InputStreamReader ir = new InputStreamReader(System.in);
+             BufferedReader br = new BufferedReader(ir)) {
+            System.out.println("read two input values: ");
+            String str1 = br.readLine();
+            String str2 = br.readLine();
+            int result = Integer.parseInt(str1) / Integer.parseInt(str2);
+            return("results :"+result);
+
+        } catch (IOException e) {
+            return("resource error" + e.getMessage());
+        } catch (ArithmeticException e) {
+            return(e.getMessage());
+        } catch (NumberFormatException e) {
+            return (e.getMessage());
+        }
+    }
+    public static int readInput2() throws IOException ,ArithmeticException,NumberFormatException {
+        InputStreamReader ir = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(ir);
+        System.out.println("Read two input values : ");
+        String str1 = br.readLine();
+        String str2 = br.readLine();
+        int result = Integer.parseInt(str1) / Integer.parseInt(str2);
+        return(result);
+    }
+
+        public static void readInput() {
+            InputStreamReader ir = null;
+            BufferedReader br = null;
+
+            String str1, str2;
+            //InputStreamReader is pipelined with buffered reader
+
+            try {
+                ir = new InputStreamReader(System.in);  //will read one char at a time
+                br = new BufferedReader(ir);
+                System.out.println("read two input values: ");
+                str1 = br.readLine();
+                str2 = br.readLine();
+                int result = Integer.parseInt(str1) / Integer.parseInt(str2);
+                System.out.println(result);
+
+            } catch (IOException e) {
+                //e.printStackTrace();
+
+                System.out.println("resource error" + e.getMessage());
+            } catch (ArithmeticException e) {
+                System.out.println(e.getMessage());
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+            } finally {
+                try {
+                    ir.close();
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        }
+}
+
+
+
+
+
+
+
+
+
+
