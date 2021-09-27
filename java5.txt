@@ -1,0 +1,436 @@
+Collection---27-09-2021
+----------------------------
+
+Set():
+
+
+package com.torryharris.mainpack;
+
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Set s1 = new HashSet();
+        s1.add(1);
+        s1.add(12.5);
+        s1.add("Java");
+        s1.add(null);
+        s1.add(12.3f);
+        System.out.println(s1);
+
+        Set<String> s2 = new HashSet<String>();
+        s2.add("aaa");
+        s2.add("XYZ");
+        s2.add("aaa");
+        s2.add("pqr");
+        s2.add("123");
+        System.out.println(s2);
+
+        Set<String> s3 = new LinkedHashSet<String>();
+        s3.add("aaa");
+        s3.add("XYZ");
+        s3.add("aaa");
+        s3.add("pqr");
+        s3.add("123");
+
+        System.out.println(s3);
+
+        Set<String> s4 = new TreeSet<String>();
+        s4.add("C");
+        s4.add("Z");
+        s4.add("z");
+        s4.add("A");
+        System.out.println(s4);
+
+    }
+}
+
+Output::
+
+[null, 1, Java, 12.5, 12.3]
+[aaa, pqr, 123, XYZ]
+[aaa, XYZ, pqr, 123]
+[A, C, Z, z]
+
+*********************************************************************************************************************
+
+List::::
+
+
+package com.torryharris.mainpack;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        List<String> stralist = new ArrayList<String>();
+        stralist.add("venky");
+        stralist.add("rajesh");
+        stralist.add("venky");
+        stralist.add("renuka");
+        System.out.println(stralist);
+
+        stralist.add(2,"shekar");
+        System.out.println(stralist);
+        stralist.remove(3);
+        System.out.println(stralist);
+
+        ArrayList<String> sublist = new ArrayList<String>();
+        sublist.add("one");
+        sublist.add("two");
+        sublist.add("three");
+
+        stralist.addAll(1,sublist);
+        System.out.println(stralist);
+
+        for(int i=0;i< stralist.size();i++)
+            System.out.print(stralist.get(i)+"  ");
+
+        //enchaned for loop
+        System.out.println();
+
+        for(String s:stralist)
+        {
+            System.out.print(s+"***");
+        }
+        System.out.println();
+
+        //we can use Iterator class object for iterating any collection
+
+        Iterator<String> it = stralist.iterator();
+        while(it.hasNext())
+        {
+            System.out.println(it.next().toUpperCase());
+        }
+
+        Scanner sc =  new Scanner(System.in);
+        ArrayList<Integer> ilist = new ArrayList<Integer>();
+
+        System.out.println("no. of elements in the arrayList");
+        int n = sc.nextInt();
+
+        for(int i = 0 ; i<n;i++)
+        {
+            System.out.println("enter the element: ");
+            int ele = sc.nextInt();
+            ilist.add(ele);
+        }
+
+
+        int sum=0;
+        Iterator<Integer> it1 = ilist.iterator();
+
+        while(it1.hasNext())
+        {
+            int ele1 = it1.next();
+            sum +=ele1;
+            System.out.print(ele1+" ");
+        }
+        System.out.println("sum of elements in ilist ="+sum);
+
+
+
+
+
+
+        sc.close();
+
+    }
+}
+
+output::
+
+
+[venky, rajesh, venky, renuka]
+[venky, rajesh, shekar, venky, renuka]
+[venky, rajesh, shekar, renuka]
+[venky, one, two, three, rajesh, shekar, renuka]
+venky  one  two  three  rajesh  shekar  renuka  
+venky***one***two***three***rajesh***shekar***renuka***
+VENKY
+ONE
+TWO
+THREE
+RAJESH
+SHEKAR
+RENUKA
+no. of elements in the arrayList
+5
+enter the element: 
+1
+enter the element: 
+2
+enter the element: 
+3
+enter the element: 
+4
+enter the element: 
+5
+1 2 3 4 5 sum of elements in ilist =15
+
+*******************************************************************************************************************
+
+vector()::
+
+
+package com.torryharris.mainpack;
+
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Vector;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Vector<String> v = new Vector<String>();
+        v.add("A");
+        v.add("C");
+        v.add("B");
+        v.add("A");
+
+        Enumeration<String> e = v.elements();
+        while(e.hasMoreElements()){
+            System.out.println(e.nextElement());
+        }
+
+        Iterator<String> it = v.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+        System.out.println(v);
+
+    }
+}
+
+output::
+
+A
+C
+B
+A
+A
+C
+B
+A
+[A, C, B, A]
+
+**************************************************************************************************
+
+Stack()---
+
+
+package com.torryharris.mainpack;
+
+import java.util.Stack;
+import java.util.Vector;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        //Vector<String> st = new Stack<String>();
+        Stack<String> st = new Stack<String>();
+        st.push("aaa");
+        st.push("bbb");
+        st.push("ccc");
+
+        System.out.println(st.pop());
+        System.out.println(st.peek());
+        System.out.println(st);
+        st.add("ddd");
+        System.out.println(st);
+        System.out.println(st.search("aaa"));
+        System.out.println(st.contains("aaa"));
+
+
+    }
+}
+
+output::
+
+ccc
+bbb
+[aaa, bbb]
+[aaa, bbb, ddd]
+3
+true
+
+*******************************************************************************************************************
+Queues----
+
+package com.torryharris.mainpack;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// Queues are implemented using linkedlist
+
+        Queue<String> q = new LinkedList<String>();
+        q.add("A");
+        q.add("B");
+        q.add("C");
+        q.add("D");
+
+        System.out.println(q);
+        q.poll();   //first in first out
+        System.out.println(q);
+        System.out.println(q.peek());
+        System.out.println(q);
+
+
+    }
+}
+
+output:::
+
+
+[A, B, C, D]
+[B, C, D]
+B
+[B, C, D]
+
+****************************************************************************************************************
+package com.torryharris.mainpack;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Map<Integer,String> hm = new HashMap<Integer,String>();
+        hm.put(100,"books");
+        hm.put(200,"Paper");
+        hm.put(300,"pens");
+        hm.put(100,"pens");
+        hm.put(null,null);
+        hm.put(250,null);
+        hm.put(350,null);
+        System.out.println(hm);
+
+        Map<Integer,String> lhm = new LinkedHashMap<Integer,String>();
+        lhm.put(100,"books");
+        lhm.put(200,"Paper");
+        lhm.put(300,"pens");
+        lhm.put(100,"pens");
+        lhm.put(null,null);
+        lhm.put(250,null);
+        lhm.put(350,null);
+        System.out.println(lhm);
+
+        Map<Integer,String> thm = new TreeMap<Integer,String>();
+        thm.put(100,"books");
+        thm.put(200,"Paper");
+        thm.put(300,"pens");
+        thm.put(100,"pens");
+        thm.put(50,null);
+        thm.put(35,null);
+        System.out.println(thm);
+
+        Map<Integer,String> ht = new Hashtable<Integer,String>();
+        ht.put(100,"books");
+        ht.put(200,"Paper");
+        ht.put(300,"pens");
+        ht.put(100,"pens");
+        //ht.put(250,null);
+        //ht.put(350,null);
+        System.out.println(ht);
+
+
+    }
+}
+
+
+output:::
+
+{null=null, 100=pens, 200=Paper, 250=null, 300=pens, 350=null}
+{100=pens, 200=Paper, 300=pens, null=null, 250=null, 350=null}
+{35=null, 50=null, 100=pens, 200=Paper, 300=pens}
+{300=pens, 200=Paper, 100=pens}
+
+***********************************************************************************************************
+
+package com.torryharris.mainpack;
+
+import com.torryharris.custpack.Customer;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Map<String,Integer> hm = new HashMap<String,Integer>();
+        hm.put("sofa",5000);
+        hm.put("table",3000);
+        hm.put("lamp",2000);
+        System.out.println(hm.keySet());
+        System.out.println(hm.values());
+
+        for(String i :hm.keySet())
+        {
+            System.out.println(hm.get(i));
+        }
+        int sum =0;
+        for(int s:hm.values())
+        {
+            sum=sum+s;
+        }
+
+        System.out.println(sum);
+        System.out.println(hm.entrySet());
+
+        HashMap<Customer,Integer> custmap = new HashMap<Customer,Integer>();
+        custmap.put(new Customer(10,"venky"),10000);
+        custmap.put(new Customer(20,"rajesh"),20000);
+        custmap.put(new Customer(30,"renuka"),30000);
+
+        for(Customer cust:custmap.keySet())
+        {
+            System.out.println(cust+"  "+custmap.get(cust));
+
+        }
+        int sum=0;
+        for(Customer cust:custmap.keySet())
+        {
+            sum += custmap.get(cust);
+
+        }
+        System.out.println(sum);
+    }
+}
+
+output::
+
+[sofa, lamp, table]
+[5000, 2000, 3000]
+5000
+2000
+3000
+10000
+[sofa=5000, lamp=2000, table=3000]
+Customer{id=20, name='rajesh'}  20000
+Customer{id=10, name='venky'}  10000
+Customer{id=30, name='renuka'}  30000
+60000
+
+
+
+
+
+
+
+
+
