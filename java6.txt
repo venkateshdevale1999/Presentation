@@ -1,0 +1,285 @@
+package com.torryharris.mainpack;
+
+import com.torryharris.gpack.Product;
+import com.torryharris.gpack.Test;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Test<String,String> tob = new Test<String,String>("hello","World");
+        System.out.println(tob);
+
+        Test<Integer,String> tob1= new Test<Integer,String>(100,"venky");
+        System.out.println(tob1);
+
+        Test<Integer, Product> tob2 = new Test<Integer,Product>(100,new Product(10,"Book"));
+        System.out.println(tob2);
+
+    }
+}
+
+
+product.java::
+
+package com.torryharris.gpack;
+
+public class Product {
+    private int pId;
+    private String pName;
+
+    public Product(int pId, String pName) {
+        this.pId = pId;
+        this.pName = pName;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "pId=" + pId +
+                ", pName=" + pName +
+                '}';
+    }
+}
+
+
+Test.java
+
+package com.torryharris.gpack;
+
+public class Test<T,U> {
+    private T ob1;
+    private U ob2;
+
+    public Test(T ob1, U ob2) {
+        this.ob1 = ob1;
+        this.ob2 = ob2;
+    }
+
+    @Override
+    public String toString() {
+        return "Test{" +
+                "ob1=" + ob1 +
+                ", ob2=" + ob2 +
+                '}';
+    }
+
+    public T getOb1() {
+        return ob1;
+    }
+
+    public U getOb2() {
+        return ob2;
+    }
+}
+
+
+output::
+
+Test{ob1=hello, ob2=World}
+Test{ob1=100, ob2=venky}
+Test{ob1=100, ob2=Product{pId=10, pName=Book}}
+
+**********************************************************************************************
+
+package com.torryharris.mainpack;
+
+import com.torryharris.tpack.Product;
+import com.torryharris.tpack.Test;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Integer[] intarr = {3,5,7,9};
+        Test.printArray(intarr);
+        System.out.println();
+
+        String[] sarr = {"A","B","C"};
+        Test.printArray(sarr);
+
+        Product[] parr = {new Product(10,"books"),new Product(20,"pens")};
+        Test.printArray(parr);
+
+
+    }
+}
+
+Test.java
+
+package com.torryharris.tpack;
+
+public class Test {
+    public static <T> void printArray(T[] arr)
+    {
+        for(T ele:arr)
+        {
+            System.out.print(ele+ "   ");
+        }
+    }
+}
+
+Product.java::
+
+package com.torryharris.tpack;
+
+public class Product {
+    private int pid;
+    private String name;
+
+
+    public Product(int pid, String name) {
+        this.pid = pid;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "pid=" + pid +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
+
+
+output::
+
+3   5   7   9   
+A   B   C   Product{pid=10, name='books'}   Product{pid=20, name='pens'} 
+
+************************************************************************************************
+
+Junit Demo::
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class EvenTest {
+
+    @Test
+    public void test(){
+        EvenOddClass ob = new EvenOddClass();
+        assertEquals(true,ob.isevenNumber(12));
+    }
+
+    @Test
+    public void test1(){
+        EvenOddClass ob1 = new EvenOddClass();
+        assertEquals(false,ob1.isevenNumber(11));
+    }
+}
+
+
+public class EvenOddClass {
+
+    public boolean isevenNumber(int number)
+    {
+        if(number%2==0)
+            return true;
+        return false;
+    }
+}
+
+*****************************************************************************************************
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class TestClass {
+
+    @Test
+    public void test()
+    {
+        int val1 = 5;
+        int val2 = 6;
+
+        assertTrue(val1<val2);
+        assertFalse(val1>val2);
+
+
+        String str1 = "abc";
+        String str2 = "abc";
+        assertSame(str1,str2);
+        assertEquals(str1,str2);
+
+
+        String[] earray = {"A","B","C"};
+        String[] rarray = {"A","B","C"};
+
+        assertArrayEquals(earray,rarray);
+
+
+    }
+}
+
+
+*******************************************************************************************************
+
+Test1.java
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class Test1 {
+
+    String message = "Robert";
+    MessageUtil mob = new MessageUtil(message);
+
+    @Test
+    public void  Test()
+    {
+        System.out.println("inside Test1 testing printMessage method");
+        assertEquals(message,mob.printMessage());
+    }
+
+}
+
+
+Test2.java::
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class Test2 {
+
+    String message = "Robert";
+    MessageUtil mob = new MessageUtil(message);
+
+    @Test
+    public void  Test()
+    {
+        System.out.println("inside Test1 testing salutationMessage method");
+        message = "hello! "+message;
+        assertEquals(message,mob.salutationMessage());
+    }
+}
+
+
+TestSuite::
+
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+        Test1.class,
+        Test2.class
+})
+
+
+
+
+
+public class TestSuite {
+}
+
+
+****************************************************************************************************
+
+
+
