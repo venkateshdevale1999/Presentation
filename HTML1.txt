@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My first html project</title>
+</head>
+<body>
+
+//header tags
+<h1>Welcome to html!!!!!</h1>
+<h2>Welcome to html!!!!!</h2>
+<h3>Welcome to html!!!!!</h3>
+<h4>Welcome to html!!!!!</h4>
+<h5>Welcome to html!!!!!</h5>
+<h6>Welcome to html!!!!!</h6>
+
+<p>
+    good morning &nbsp; it is
+    9am now <br>
+    good afternoon<br>
+</p>
+
+<!--html elements can be added with attributes i.e the extra properties with tag-->
+<!--anchor tag with attribute href-->
+<a href="https://www.w3schools.com/">Go visit w3school</a>
+<br>
+<br>
+<img src="Images\Capture.JPG">
+<img scr="https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+
+<!--iframe tag specifies a inline frame-->
+<!--used to embed another within the current HTML documnet-->
+<p align = "center">
+    <iframe src="/src/main/webapp/index.html"   width="200" height="200"></iframe>
+</p>
+
+<table height="100" width="100" border="1">
+    <tr>
+        <th>Product Id</th>
+        <th>P name</th>
+        <th>P Price</th>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td>Books</td>
+        <td>300</td>
+    </tr>
+    <tr>
+        <td>200</td>
+        <td>CDs</td>
+        <td>300</td>
+    </tr>
+
+
+</table>
+
+
+</body>
+</html>
+
+-----------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formatting Tags</title>
+</head>
+<body>
+
+this is <b> very very important</b><br>
+this is <i> very very impoortant</i><br>
+this is <small> very very important</small><br>
+this is <em>very very important</em><br>
+this is <u>very very important</u><br>
+this is <mark>very very important</mark><br>
+this is <em>very very important</em><br>
+this is <sub>very very important</sub><br>
+this is <sup>very very important</sup><br>
+this is <strike>very very important</strike><br>
+this is <tt>very very important</tt><br>
+this is <strong>very very important</strong><br>
+this is <del>very very important</del><br>
+this is <ins>very very important</ins><br>
+
+
+
+</body>
+</html>
+--------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Tags</title>
+</head>
+<body>
+ <form action="/src/main/webapp/index1.html" method="post">
+     <label> First name:</label>
+     <input type="text" name="fname" id="fname"><br>
+     <label> Last name:</label>
+     <input type="text" name="lname" id="lname"><br>
+     <label>Password:</label>
+     <input type="password" name="pword" id="pword"><br>
+     <label>Address</label>
+     <textarea rows="10" cols="10">address</textarea><br>
+     <select name="states" id="states">
+         <option value="karnataka">Karnataka</option>
+         <option value="Andra Pradesh">A.P</option>
+         <option value="Tamil nadu">T.N</option>
+         <option value="Telengana">T.S</option>
+     </select><br><br>
+     <input type="radio" id="fruit" name="fruit" value="apple">
+     <label for="fruit">Apple</label><br>
+
+     <input type="radio" id="fruit1" name="fruit1" value="grapes">
+     <label for="fruit">GRAPES</label><br>
+
+     <input type="checkbox" id="2vaccination" name="2vaccination" value="2">
+     <label for="2vaccination">completed</label><br>
+
+     <input type="checkbox" id="1vaccination" name="1vaccination" value="1">
+     <label for="1vaccination">1st vacci done</label><br>
+
+     <input type="checkbox" id="0vaccination" name="0vaccination" value="0">
+     <label for="0vaccination">not vacci</label><br>
+     <br>
+     <br>
+
+     <label for doj>Join Date</label>
+     <input type="date" id="doj" name="doj">
+     <br>
+     <br>
+
+
+     <label for qty> Quantity (between 1-5)</label>
+     <input type="number" id="qty" name="qty" min="1" max="5">
+     <br>
+     <br>
+
+
+
+
+         <label for="myfile">Select files from the local drive</label>
+         <input type="file" id="myfile" name="myfile" multiple>
+         <br>
+         <br>
+
+         <label for="mymail">Enter your email</label>
+         <input type="email" id="mymail" name="mymail">
+         <br>
+         <br>
+     //////
+
+
+
+
+
+
+
+     <input type="submit" value="submit">
+
+     <canvas id = "mycanvas" width ="200" height ="100"> </canvas>
+
+     <canvas id="myCanvas1" width="250" height="150" style="border:1px solid #c3c3c3;">
+         Your browser does not support the HTML5 canvas tag.
+     </canvas>
+
+
+ </form>
+</body>
+</html>
+
+---------------------------------------------------------------------------------------------------
+
+
+
