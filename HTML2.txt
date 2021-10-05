@@ -1,0 +1,209 @@
+webpages for train ticket project::
+
+login.hmtl:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Login Page </title>
+    <style>
+Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+button {
+       background-color: #4CAF50;
+       width: 100%;
+        color: orange;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+         }
+ form {
+        border: 3px solid #f1f1f1;
+    }
+ input[type=text], input[type=password] {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 2px solid green;
+        box-sizing: border-box;
+    }
+ button:hover {
+        opacity: 0.7;
+    }
+
+
+
+ .container {
+        padding: 25px;
+        background-color: lightblue;
+    }
+</style>
+</head>
+<body>
+<center> <h1>  Login  </h1> </center>
+<form action="Welcome.html" method="post">
+    <div class="container">
+        <label>Username : </label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <label>Password : </label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Login</button>
+
+        <button type="submit"><a href="signup.html">Sign Up</a></button>
+
+
+    </div>
+</form>
+</body>
+</html>
+
+*******************************************************************************************************************************
+
+signup page::::
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Sign Up </title>
+    <style>
+Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: lightgrey;
+  align:center;
+}
+button {
+       background-color: lightblue;
+       width: 50%;
+        color: green;
+        padding: 15px;
+        margin: 10px 0px;
+        border:2px  ;
+        cursor: pointer;
+         }
+ form {
+        border: 3px solid #f1f1f1;
+        width:50%;
+        align:center;
+    }
+ input[type=text], input[type=password],input[type=email] {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 2px solid green;
+        box-sizing: border-box;
+    }
+ button:hover {
+        opacity: 0.7;
+    }
+
+
+
+ .container {
+        padding: 25px;
+        background-color: lightblue;
+    }
+</style>
+</head>
+<body>
+<center> <h1>  Sign Up  </h1>
+<form>
+    <div class="container">
+<!--        <label>Firstname : </label>-->
+        <input type="text" placeholder="Enter Firstname" name="firstname" required>
+<!--        <label>Lastname : </label>-->
+        <input type="text" placeholder="Enter Lastname" name="lastname" required>
+<!--        <label>email address : </label>-->
+        <input type="email" placeholder="abc@gmail.com" name="email" required>
+        <br>
+<!--        <label>Password : </label>-->
+        <input type="password"  placeholder=" password" name="password" required>
+<!--        <label>Confirm Password : </label>-->
+        <input type="password" placeholder="confirm password" name="confirm password" required>
+
+        <button type="submit"><a href="Login.html">Sign Up</a></button>
+
+    </div>
+</form>
+</center>
+</body>
+
+</html>
+
+
+**********************************************************************************************************************************
+
+welcome page::
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page</title>
+    <style>body{
+    background-color:lightblue;
+    }
+
+    </style>
+</head>
+<body>
+<h1 style="color:tomato; text-align:center;"><b>Welcome</b></h1>
+<h2 style="text-align:center;">Train details</h2>
+<table border="2" align="center">
+    <tr>
+        <th>TRAIN NO</th>
+        <th>TRAIN NAME</th>
+        <th>SOURCE</th>
+        <th>DESTINATION</th>
+    </tr>
+    <tr>
+        <td>1001</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>1002</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>1003</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+</table>
+<br>
+<center>
+<button  type="submit"><a href="index.html">Book</a></button>
+</center>
+</body>
+</html>
+
+***************************************************************************************************************************
+End page:::::
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket Booked</title>
+</head>
+<body>
+<h1>Ticket Booked!!!!!!</h1>
+
+</body>
+</html>
+
+***************************************************************************************************************************
+
