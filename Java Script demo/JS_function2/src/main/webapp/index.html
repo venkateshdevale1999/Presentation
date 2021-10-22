@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functionandmultipleargument</title>
+
+</head>
+<body>
+<p id="res1"></p>
+<p id="res2"></p>
+<p id="res3"></p>
+
+
+<script>
+    function myfunction(x,y)
+    {
+        return x*y;
+    }
+
+    function myfunction1(x,y=2)
+    {
+    return x*y;
+    }
+    function max()
+    {
+        let max=0;
+        for(let i=0;i<arguments.length;i++)
+        {
+            if(max<arguments[i])
+                max=arguments[i];
+        }
+    return max;
+    }
+
+    document.getElementById("res1").innerHTML=myfunction(5,15);
+    document.getElementById("res2").innerHTML=myfunction1(5);
+    document.getElementById("res3").innerHTML=max(5,15,56,78,34);
+
+</script>
+
+</body>
+</html>

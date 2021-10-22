@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>callbackfunction</title>
+</head>
+<body>
+<input type="number" id="n1"/><"br">
+
+
+
+<p id="res"></p>
+</body>
+<script>
+function PrintMax()
+{
+var n1 = document.getElementById("n1");
+var n2 = document.getElementById("n1");
+
+}
+
+
+
+
+var s="";
+    function display(something)
+    {
+
+    s=s+" "+something;
+    document.getElementById("res").innerHTML = s;
+    }
+
+    function findMax(num1,num2,myCallback)
+    {
+    let max=0;
+    if(num1>num2)
+      max=num1;
+    else
+      max=num2;
+
+      myCallback(max);
+
+    }
+
+    function add(n1,n2,myCallback)
+    {
+    let sum=n1+n2;
+    myCallback(sum);
+
+   }
+    findMax(15,5,display);
+    add(100,50,display);
+
+
+
+
+</script>
+
+
+</html>

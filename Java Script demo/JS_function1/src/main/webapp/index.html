@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSFunctionwithbutton</title>
+</head>
+<body>
+Enter n1: <input type="text" id="n1" value="0"><br>
+Enter n2: <input type="text" id="n2" value="0"><br>
+<button type="button" id="button1" onclick="sum()">Add</button>
+<button type="button" id="button2" onclick="sub()">Substact</button>
+<button type="button" id="button3" onclick="prod()">product</button>
+<button type="button" id="button4" onclick="divide()">Divide</button>
+
+<script>
+  function sum()
+  {
+  var n1 = document.getElementById("n1").value;
+  var n2 = document.getElementById("n2").value;
+  let res = parseInt(n1)+parseInt(n2);
+  document.getElementById("result").innerHTML="Answer="+res;
+
+  }
+  function sub()
+  {
+  var n1 = document.getElementById("n1").value;
+  var n2 = document.getElementById("n2").value;
+  let res = parseInt(n1)-parseInt(n2);
+  document.getElementById("result").innerHTML="Answer="+res;
+  }
+  function prod()
+  {
+  var n1 = document.getElementById("n1").value;
+  var n2 = document.getElementById("n2").value;
+  let res = parseInt(n1)*parseInt(n2);
+  document.getElementById("result").innerHTML="Answer="+res;
+  }
+  function divide()
+  {
+  var n1 = document.getElementById("n1").value;
+  var n2 = document.getElementById("n2").value;
+  let res = parseInt(n1)/parseInt(n2);
+  document.getElementById("result").innerHTML="Answer="+res;
+  }
+
+
+
+</script>
+
+<p id="result"></p>
+
+
+
+
+</body>
+</html>

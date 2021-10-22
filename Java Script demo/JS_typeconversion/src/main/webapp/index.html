@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>typeconversion</title>
+</head>
+<body>
+<script type="text/javascript">
+    let y="5"
+    document.write(typeof y+" value of y is:"+y+"<br>");
+
+    let z=+y;
+    document.write(typeof y+" value of y is:"+y+"<br>");
+    document.write(typeof z+" value of z is:"+z+"<br>");
+
+    let x=333;
+    document.write(typeof(x)+"<br>");
+    document.write(String(x)+"<br>");
+    document.write((45+30).toString()+"<br>");
+
+    document.write(Number(false)+"<br>");
+    document.write(Number(true)+"<br>");
+
+
+    var url = "index1.html?fname=Mythili&lname=G&pword=1234";
+    var encurl= encodeURIComponent(url)
+    document.write(encurl);
+    var decodeurl = decodeURIComponent(encurl);
+    document.write(decodeurl);
+
+
+    mystr = new String("Hello World");
+    document.write(mystr.length+"<br>");
+
+   mystr1 = new String("click here to go to helloworld.com");
+   document.write(mystr1.link("https://www.helloworld.com")+"<br>");
+
+    document.write(mystr1.big()+"<br>");
+    document.write(mystr1.bold()+"<br>");
+    document.write(mystr1.charAt(0)+"<br>");
+    document.write(mystr1.charCodeAt(0)+"<br>");
+
+    ms="welcome to java script world";
+    splitms=ms.split(" ");
+    for(i in splitms)
+    {
+    document.write(splitms[i]+"<br>");
+    }
+
+    document.write(mystr1.slice(7,13)+"<br>");
+    document.write(mystr1.slice(-12,-6)+"<br>");
+
+    document.write(mystr1.substr(7,3)+"<br>");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Onsubmit</title>
+</head>
+<body>
+<form name="lform" action="welcome.html" method="post" onsubmit="return validateForm()">
+
+    Username:<input type="text" id="uname" name="uname"><br><br>
+    Password:<input type="password" id="pass" name="pass"><br><br>
+    <input type="submit" value="Submit">
+
+</form>
+<script>
+    function validateForm()
+    {
+        var un = document.lform.uname.value;
+        var ps = document.lform.pass.value;
+
+        if((un==null)||(ps==null)||(ps=="")||(un==""))
+        {
+            alert("enter the credential");
+            return false;
+        }
+
+
+    }
+
+
+
+</script>
+
+</body>
+</html>
